@@ -22,8 +22,8 @@ body {
 }
 
 .card {
-  min-height: 300px;
-  width: 250px;
+  min-height: 320px;
+  width: 240px;
   position: relative;
   border-radius: 0.25rem;
   background-color: rgb(249, 242, 227);
@@ -36,7 +36,7 @@ body {
   box-sizing: border-box;
   border-radius: 0.25rem;
   height: 100%;
-  padding: 25px;
+  padding: 20px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   width: 100%;
   transition: transform 0.5s ease;
@@ -103,7 +103,8 @@ p{
   width: 100%;
 }
 
-.frontModal {
+.blogModal,
+.projectModal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -148,19 +149,19 @@ p{
 
 
 #card0 {
-  transform: rotateY(0deg) translateZ(90px);
+  transform: rotateY(0deg) translateZ(10px);
 }
 #card1 {
-  transform: rotateY(-40deg) translateZ(180px);
+  transform: rotateY(-40deg) translateZ(288px);
 }
 #card-1 {
-  transform: rotateY(10deg) translateZ(288px);
+  transform: rotateY(40deg) translateZ(288px);
 }
 #card2 {
-  transform: rotateY(0deg) translateZ(288px);
+  transform: rotateY(-60deg) translateZ(320px);
 }
 #card-2 {
-  transform: rotateY(0deg) translateZ(288px);
+  transform: rotateY(60deg) translateZ(320px);
 }
 #card3 {
   transform: rotateY(0deg) translateZ(288px);
