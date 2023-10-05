@@ -77,14 +77,6 @@ p{
   font-size: 14px;
 }
 
-.readMore{
-  border: 0;
-  background-color: #ebf4ff;
-  width: 40px;
-  height: 12px;
-  font-size: 12px;
-}
-
 .arrow {
   border: solid black;
   border-width: 0 1px 1px 0;
@@ -111,19 +103,18 @@ p{
   width: 100%;
 }
 
-.modal {
-  display: none; 
-  position: fixed; 
-  top: 5%;
-  left: 5%;
-  width: 700px; 
-  height: 800px; 
-  overflow: auto; 
-  background-color: rgba(0,0,0,0.4); 
+.frontModal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .modalContent {
-  position: relative;
+  position: center;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -155,24 +146,15 @@ p{
   height: 100%;
 }
 
-.frontModal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  top: 8vh;
-  left: 25vw;
-  width: 60vw;
-  height: 80vh;
-}
 
 #card0 {
-  transform: rotateY(0deg) translateZ(288px);
+  transform: rotateY(0deg) translateZ(90px);
 }
 #card1 {
-  transform: rotateY(0deg) translateZ(288px);
+  transform: rotateY(-40deg) translateZ(180px);
 }
 #card-1 {
-  transform: rotateY(0deg) translateZ(288px);
+  transform: rotateY(10deg) translateZ(288px);
 }
 #card2 {
   transform: rotateY(0deg) translateZ(288px);

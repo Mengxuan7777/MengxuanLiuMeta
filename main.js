@@ -27,20 +27,31 @@ function flipToFront(event) {
         btn.addEventListener('click', flipToFront);
     })
 
-// Open Modals
-const cardF = document.querySelector('.cardFront')
-const frontModal = document.querySelector('.frontModal')
-const closeBtn =  document.querySelector('.close')
+// Open frontModals
+const cardFronts = document.querySelectorAll('.cardFront');
+const frontModals = document.querySelectorAll('.frontModal');
+const closeBtns =  document.querySelectorAll('.close');
 
-function modalOpen(event){
+function modalOpen(event) {
+    const modalId = event.target.getAttribute('data-cardfrontid');
+    console.log(modalId);
+    const frontModal = document.getElementById(`frontModal${modalId}`);
     console.log('modal here')
-    frontModal.style.display = 'block'
+    frontModal.style.display = 'block';
+}
 
+cardFronts.forEach((cardFront) => {
+    cardFront.addEventListener('click', modalOpen);
+});
+
+function modalClose(event) {
+    const modalId = event.target.getAttribute('data-closeBtnid');
+    console.log(modalId);
+    const frontModal = document.getElementById(`frontModal${modalId}`);
+    frontModal.style.display = 'none';
 }
-function modalClose(event){
-    frontModal.style.display = 'none'
-}
-    
-    cardF.addEventListener('click', modalOpen)
-    closeBtn.addEventListener('click',modalClose)
+
+closeBtns.forEach((closeBtn) => {
+    closeBtn.addEventListener('click', modalClose);
+});
 
