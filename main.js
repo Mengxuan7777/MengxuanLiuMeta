@@ -1,12 +1,13 @@
-const btnToBacks = document.querySelector(".right");
-const btnToFronts = document.querySelector(".left");
+const container = document.querySelector('.container');
+
+const btnToBacks = document.querySelectorAll(".right");
+const btnToFronts = document.querySelectorAll(".left");
 
 const card = document.querySelector('.cardFront')
 const frontModal = document.querySelector('.frontModal')
 const closeBtn =  document.querySelector('.close')
 
 function flipToBack(event) {
-    console.log('i am clicked')
     const cardId = event.target.getAttribute('data-cardid');
     const cardFront = document.getElementById(`cardFront${cardId}`);
     const cardBack = document.getElementById(`cardBack${cardId}`);
@@ -21,11 +22,17 @@ function flipToFront(event) {
     cardFront.classList.toggle('flipped');
     cardBack.classList.toggle('flipped');
 }
+    // these are for the arrows that flip the cards
+    btnToBacks.forEach(btn => {
+        console.log(btn)
+        btn.addEventListener('click', flipToBack);
+    })
+    
+    btnToFronts.forEach(btn => {
+        btn.addEventListener('click', flipToFront);
+    })
 
-    btnToBacks.addEventListener('click', flipToBack);
-
-    btnToFronts.addEventListener('click', flipToFront);
-
+    // these are to open the modal when you click the card
     function modalFn(event){
         console.log('modal here')
         frontModal.style.display = 'block'
@@ -33,9 +40,8 @@ function flipToFront(event) {
     }
     function closeFn(event){
         frontModal.style.display = 'none'
-
     }
-
+    
     card.addEventListener('click', modalFn)
     closeBtn.addEventListener('click',closeFn)
 
