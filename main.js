@@ -1,74 +1,106 @@
-let isDragging = false;
-let startX = 0;
-let startY = 0;
-let currentRotationY = 0;
-let currentRotationX = 0;
-let lastRotationY = 0;
-let lastRotationX = 0;
+const btnToBacks = document.querySelector(".right");
+const btnToFronts = document.querySelector(".left");
 
-const carousel = document.getElementById('carousel');
+const card = document.querySelector('.cardFront')
+const frontModal = document.querySelector('.frontModal')
+const closeBtn =  document.querySelector('.close')
 
-carousel.addEventListener('mousedown', (event) => {
-    isDragging = true;
-    startX = event.clientX;
-    startY = event.clientY;
-});
+function flipToBack(event) {
+    console.log('i am clicked')
+    const cardId = event.target.getAttribute('data-cardid');
+    const cardFront = document.getElementById(`cardFront${cardId}`);
+    const cardBack = document.getElementById(`cardBack${cardId}`);
+    cardFront.classList.toggle('flipped');
+    cardBack.classList.toggle('flipped');
+}
 
-window.addEventListener('mousemove', (event) => {
-    if (!isDragging) return;
-    const x = event.clientX;
-    const y = event.clientY;
+function flipToFront(event) {
+    const cardId = event.target.getAttribute('data-cardid');
+    const cardFront = document.getElementById(`cardFront${cardId}`);
+    const cardBack = document.getElementById(`cardBack${cardId}`);
+    cardFront.classList.toggle('flipped');
+    cardBack.classList.toggle('flipped');
+}
 
-    const movementX = x - startX;
-    const movementY = y - startY;
+    btnToBacks.addEventListener('click', flipToBack);
 
-    currentRotationY = lastRotationY + movementX / 3; // sensitivity adjustment for horizontal rotation
-    currentRotationX = lastRotationX - movementY / 3; // sensitivity adjustment for vertical rotation
+    btnToFronts.addEventListener('click', flipToFront);
 
-    carousel.style.transform = `rotateY(${currentRotationY}deg) rotateX(${currentRotationX}deg)`;
-});
+    function modalFn(event){
+        console.log('modal here')
+        frontModal.style.display = 'block'
 
-window.addEventListener('mouseup', () => {
-    isDragging = false;
-    lastRotationY = currentRotationY;
-    lastRotationX = currentRotationX;
-});
+    }
+    function closeFn(event){
+        frontModal.style.display = 'none'
 
-window.addEventListener('mouseleave', () => {
-    isDragging = false;
-    lastRotationY = currentRotationY;
-    lastRotationX = currentRotationX;
-});
-
-
-// Get all the modals
-const modals = document.querySelectorAll(".modal");
-
-// Get all the figures
-const figures = document.querySelectorAll("#carousel figure");
-
-// Add a click event listener to every figure
-figures.forEach(figure => {
-    figure.addEventListener('click', function() {
-        const modalId = this.getAttribute('data-modal-id');
-        const modal = document.getElementById(modalId);
-        modal.style.display = "block";
-    });
-});
-
-// Close modal when clicking on the overlay (outside the modal content)
-modals.forEach(modal => {
-    modal.onclick = function() {
-        modal.style.display = "none";
     }
 
-    const content = modal.querySelector(".modal-content");
-    content.onclick = function(event) {
-        event.stopPropagation(); // Prevents the event from reaching the modal overlay
-    }
-});
+    card.addEventListener('click', modalFn)
+    closeBtn.addEventListener('click',closeFn)
 
 
+// function flipToFront() {
+//   cardFront.classList.toggle('flipped')
+//   cardFont.classList.toggle('flipped')
+// }
+
+// const front = document.getElementById("front")
+// const back = document.getElementById("back")
+// // const btn = document.getElementById("flipBtn")
+// const btnToBack = document.getElementById("btnToBack")
+// const btnToFront = document.getElementById("btnToFront")
+
+// function flipToBack() {
+//     cardFont.classList.toggle('flipped')
+//     cardBack.classList.toggle('flipped')
+// }
+
+// function flipToFront() {
+//   cardFont.classList.toggle('flipped')
+//   cardFont.classList.toggle('flipped')
+// }
+
+// btnToBack.addEventListener('click', flipToBack)
+// btnToFront.addEventListener('click', flipToFront)
+
+// // Get all the frontmodals
+// const frontModals = document.querySelectorAll(".frontModal");
+
+// // Get all the cardFront
+// const figures = document.querySelectorAll(".cardFront figure");
+
+// // Add a click event listener to every frontmodals
+// figures.forEach(figure => {
+//     figure.addEventListener('click', function() {
+//         const frontModalId = this.getAttribute('id');
+//         const frontModal = document.getElementById(frontModalId);
+//         frontModal.style.display = "block";
+//     });
+// });
+
+// // Close modal when clicking on the overlay (outside the modal content)
+// modals.forEach(modal => {
+//     modal.onclick = function() {
+//         modal.style.display = "none";
+//     }
+
+//     const content = modal.querySelector(".modal-content");
+//     content.onclick = function(event) {
+//         event.stopPropagation(); // Prevents the event from reaching the modal overlay
+//     }
+// });
 
 
+// const modal = document.getElementById("frontModal");
+// const closeBtn = document.querySelector(".close");
 
+// // Open the modal when the card is clicked
+// document.querySelector('.cardFront').addEventListener('click', function() {
+//   modal.style.display = "block";
+// });
+
+// // Close the modal when the "X" is clicked
+// closeBtn.addEventListener('click', function() {
+//   modal.style.display = "none";
+// });

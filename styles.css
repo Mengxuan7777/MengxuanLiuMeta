@@ -1,375 +1,161 @@
-@import url(https://fonts.googleapis.com/css?family=Anaheim);
-
 * {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
-  font-weight: 20;
 }
 
-html, body {
-  display:flex;
-  min-height: 100%;
-  min-width: 100%;
-  margin: 0;  
-  background-image: url("./image/backgorund2.jpg");
-  background-repeat:no-repeat;
-  background-size:cover;
-  font-family: "Raleway", sans-serif;
-  /* linear-gradient(to top, rgb(22, 22, 22) , rgb(255, 255, 255)); */
-}
-
-.card {
-  margin: 4vw;
-  width: 17vw;
-  height: 70vh;
-  flex-direction: row;
-  row-gap: 18px;
-  box-shadow: 0 15px 25px rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
-  backdrop-filter: blur(14px);
-  background-color: rgba(255, 255, 255, 0.2);
-  text-align: left;
-  animation: float 4s ease-in-out infinite;
-}
-
-.title{
-  margin:24px;
-  color: white;
-  font-size: 24px;
-}
-
-.text{
-  padding:24px;
-  color: white;
-  font-size: 14px;
-}
-
-.comment {
-  margin:24px;
-  border: 1px solid #7a7a7a;
-  border-radius: 2px;
-  background-color: rgba(255, 255, 255, 0.6);
-  resize: none;
-  width:80%;
-  font-size: 14px;
-}
-
-.glowing-btn {
-  margin:24px;
-  color: rgb(0, 221, 255);
-  cursor: pointer;
-  padding: 0.35em 1em;
-  border: 0.15em solid ;
-  border-radius: 0.45em;
-  background: none;
-  perspective: 2em;
-  font-family: "Raleway", sans-serif;
-  font-size: 14px;
-  letter-spacing: 1em;
-
-  -webkit-box-shadow: inset 0px 0px 0.5em 0px  rgb(0, 221, 255),
-    0px 0px 0.5em 0px  rgb(0, 221, 255);
-  -moz-box-shadow: inset 0px 0px 0.5em 0px  rgb(0, 221, 255),
-    0px 0px 0.5em 0px  rgb(0, 221, 255);
-  box-shadow: inset 0px 0px 0.5em 0px  rgb(0, 221, 255),
-    0px 0px 0.5em 0px  rgb(0, 221, 255);
-  animation: border-flicker 2s linear infinite;
-}
-
-.glowing-txt {
-  float: left;
-  margin-right: -0.8em;
-  -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
-    0 0 0.45em var(--glow-color);
-  -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3),
-    0 0 0.45em var(--glow-color);
-  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em  rgb(0, 221, 255);
-  animation: text-flicker 3s linear infinite;
-}
-
-.faulty-letter {
-  opacity: 0.5;
-  animation: faulty-flicker 2s linear infinite;
-}
-
-.glowing-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0.7;
-  filter: blur(1em);
-  transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
-  background:  rgb(0, 221, 255);
-  pointer-events: none;
-}
-
-.glowing-btn::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0;
-  z-index: -1;
-  background-color:  rgb(0, 221, 255);
-  box-shadow: 0 0 2em 0.2em  rgb(0, 221, 255);
-  transition: opacity 100ms linear;
-}
-
-.glowing-btn:hover {
-  color: rgb(0, 0, 0);
-  text-shadow: none;
-  animation: none;
-}
-
-.glowing-btn:hover .glowing-txt {
-  animation: none;
-}
-
-.glowing-btn:hover .faulty-letter {
-  animation: none;
-  text-shadow: none;
-  opacity: 1;
-}
-
-.glowing-btn:hover:before {
-  filter: blur(1.5em);
-  opacity: 1;
-}
-
-.glowing-btn:hover:after {
-  opacity: 1;
-}
-
-@keyframes faulty-flicker {
-  0% {
-    opacity: 0.1;
-  }
-  2% {
-    opacity: 0.1;
-  }
-  4% {
-    opacity: 0.5;
-  }
-  19% {
-    opacity: 0.5;
-  }
-  21% {
-    opacity: 0.1;
-  }
-  23% {
-    opacity: 1;
-  }
-  80% {
-    opacity: 0.5;
-  }
-  83% {
-    opacity: 0.4;
-  }
-
-  87% {
-    opacity: 1;
-  }
-}
-
-@keyframes text-flicker {
-  0% {
-    opacity: 0.1;
-  }
-
-  2% {
-    opacity: 1;
-  }
-
-  8% {
-    opacity: 0.1;
-  }
-
-  9% {
-    opacity: 1;
-  }
-
-  12% {
-    opacity: 0.1;
-  }
-  20% {
-    opacity: 1;
-  }
-  25% {
-    opacity: 0.3;
-  }
-  30% {
-    opacity: 1;
-  }
-
-  70% {
-    opacity: 0.7;
-  }
-  72% {
-    opacity: 0.2;
-  }
-
-  77% {
-    opacity: 0.9;
-  }
-  100% {
-    opacity: 0.9;
-  }
-}
-
-@keyframes border-flicker {
-  0% {
-    opacity: 0.1;
-  }
-  2% {
-    opacity: 1;
-  }
-  4% {
-    opacity: 0.1;
-  }
-
-  8% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 0.7;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .glowing-btn{
-    font-size: 1em;
-  }
-}
-
-.bio{
-  z-index: 10;
-  width: 12em;
-  margin: 20px;
-  border-right: 2px solid rgba(255, 255, 255, 0.75);
-  font-size: 18px;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: left;
-  white-space: nowrap;
-  overflow: hidden;
-  transform: translateY(-50%);    
-}
-
-/* Animation */
-.anim-typewriter{
-color: white;
-animation: typewriter 4s steps(44) 1s 1 normal both,
-           blinkTextCursor 500ms steps(44) infinite normal;
-}
-@keyframes typewriter{
-from{width: 0;}
-to{width: 10em;}
-}
-@keyframes blinkTextCursor{
-from{border-right-color: rgba(0, 255, 0, 0.75); border-width: 4px;}
-to{border-right-color: transparent;}
+body {
+  background: #ffffff;
+  justify-content: center;
+  perspective: 500px;
+  perspective-origin: center;
 }
 
 .container {
-  margin: 4% auto;
-  top: 20%;
-  left: 7%;
-  width: 600px;
-  height: 450px;
-  position: relative;
-  perspective: 600px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
 }
 
-#carousel {
+.card {
+  min-height: 300px;
+  width: 250px;
+  position: relative;
+  border-radius: 0.25rem;
+  background-color: rgb(249, 242, 227);
+}
+
+.cardFront,
+.cardBack {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 0.25rem;
+  height: 100%;
+  padding: 25px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  width: 100%;
+  transition: transform 0.5s ease;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.cardBack {
+  background-color: #ebf4ff;
+  transform: perspective(1000px) rotateY(180deg);
+}
+
+.cardBack.flipped {
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.cardFront {
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.cardFront.flipped {
+  transform: perspective(1000px) rotateY(-180deg);
+}
+
+.abstract{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+h2 {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+p{
+  font-size: 14px;
+}
+
+.readMore{
+  border: 0;
+  background-color: #ebf4ff;
+  width: 40px;
+  height: 12px;
+  font-size: 12px;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 1px 1px 0;
+  display: inline-block;
+  padding: 6px;
+}
+
+.right {
+  margin-right: 1px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  margin-left: 1px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.card img {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  height: auto;
+  width: 100%;
+}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  top: 5%;
+  left: 5%;
+  width: 700px; 
+  height: 800px; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modalContent {
+  position: relative;
+  margin: 0;
+  padding: 0;
   width: 100%;
   height: 100%;
-  position: absolute;
-  transform-style: preserve-3d;
-  /* animation: float 4s ease-in-out infinite; */
-  /* animation: rotation 17s infinite linear; */
-}
-#carousel:hover {
-  animation-play-state: paused;
-}
-#carousel figure {
-  display: block;
-  position: absolute;
-  width: 186px;
-  height: 116px;
-  left: 5px;
-  top: 100px;
-  overflow: hidden;
-  border: 0px;
-}
-#carousel figure:nth-child(1) {
-  transform: rotateY(0deg) translateZ(288px);
-}
-#carousel figure:nth-child(2) {
-  transform: rotateY(40deg) translateZ(288px);
-}
-#carousel figure:nth-child(3) {
-  transform: rotateY(80deg) translateZ(288px);
-}
-#carousel figure:nth-child(4) {
-  transform: rotateY(120deg) translateZ(288px);
-}
-#carousel figure:nth-child(5) {
-  transform: rotateY(160deg) translateZ(288px);
-}
-#carousel figure:nth-child(6) {
-  transform: rotateY(200deg) translateZ(288px);
-}
-#carousel figure:nth-child(7) {
-  transform: rotateY(240deg) translateZ(288px);
-}
-#carousel figure:nth-child(8) {
-  transform: rotateY(280deg) translateZ(288px);
-}
-#carousel figure:nth-child(9) {
-  transform: rotateY(320deg) translateZ(288px);
+  background-color: #fefefe;
+  border: 1px solid #888;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-#carousel figure img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  /* This will ensure that both videos and images scale correctly */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-img:hover {
-  -webkit-filter: grayscale(0);
-  transform: scale(1.2, 1.2);
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-@keyframes float {
-  0% {
-      transform: translateY(0) rotateY(0deg);
-  }
-  50% {
-      transform: translateY(-10px) rotateY(0deg);
-  }
-  100% {
-      transform: translateY(0) rotateY(0deg);
-  }
+.docs {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
-/* @keyframes rotation {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
-} */
-
-/* The Modal (background) */
-.modal {
+.frontModal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -377,51 +163,26 @@ img:hover {
   left: 25vw;
   width: 60vw;
   height: 80vh;
-  flex-direction: row;
-  row-gap: 20px;
-  box-shadow: 0 15px 25px rgba(129, 124, 124, 0.2);
-  border-radius: 20px;
-  backdrop-filter: blur(14px);
-  background-color: rgba(255, 255, 255, 0.2);
-  text-align: left;
 }
 
-/* Modal Content */
-.modal-content {
-  position: relative;
-  margin:5%;
-  height: 80%;
-  width: 80%; /* Could be more or less, depending on screen size */
-  display: flex;
-  flex-flow: column;
-  row-gap: 20px;
+#card0 {
+  transform: rotateY(0deg) translateZ(288px);
 }
-
-.modal-title{
-  font-size: 20px;
-  color: rgb(255, 255, 255);
+#card1 {
+  transform: rotateY(0deg) translateZ(288px);
 }
-
-.essay{
-  font-size: 12px;
-  color: rgb(255, 255, 255);
+#card-1 {
+  transform: rotateY(0deg) translateZ(288px);
 }
-
-.img{
-  max-height: 90%;
-  width: 90%;
+#card2 {
+  transform: rotateY(0deg) translateZ(288px);
 }
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+#card-2 {
+  transform: rotateY(0deg) translateZ(288px);
 }
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+#card3 {
+  transform: rotateY(0deg) translateZ(288px);
+}
+#card-3 {
+  transform: rotateY(0deg) translateZ(288px);
 }
