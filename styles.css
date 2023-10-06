@@ -22,7 +22,7 @@ body {
 }
 
 .card {
-  min-height: 320px;
+  min-height: 350px;
   width: 240px;
   position: relative;
   border-radius: 0.25rem;
@@ -140,13 +140,20 @@ p{
   cursor: pointer;
 }
 
-.docs {
-  margin: 0;
-  padding: 0;
-  width: 100%;
+.essay {
+  margin-left: 10%;
+  margin-right: 10%;
   height: 100%;
+  background: #ebf4ff;
 }
 
+.docs {
+  position: center;
+  width: 100%;
+  height: 100%;
+  background:  #ebf4ff;
+  outline: none;
+}
 
 #card0 {
   transform: rotateY(0deg) translateZ(10px);
